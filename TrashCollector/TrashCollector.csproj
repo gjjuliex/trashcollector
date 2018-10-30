@@ -195,11 +195,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomerCsController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TrashCsController.cs" />
+    <Compile Include="Controllers\TrashEsController.cs" />
     <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +206,26 @@
     <Compile Include="Migrations\201810291309041_initial mirgration.cs" />
     <Compile Include="Migrations\201810291309041_initial mirgration.Designer.cs">
       <DependentUpon>201810291309041_initial mirgration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301253241_entering more inputs for information.cs" />
+    <Compile Include="Migrations\201810301253241_entering more inputs for information.Designer.cs">
+      <DependentUpon>201810301253241_entering more inputs for information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301323003_new input for data.cs" />
+    <Compile Include="Migrations\201810301323003_new input for data.Designer.cs">
+      <DependentUpon>201810301323003_new input for data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301332066_NewEdit.cs" />
+    <Compile Include="Migrations\201810301332066_NewEdit.Designer.cs">
+      <DependentUpon>201810301332066_NewEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301343261_new changes.cs" />
+    <Compile Include="Migrations\201810301343261_new changes.Designer.cs">
+      <DependentUpon>201810301343261_new changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810301425056_added FK to TrashC model.cs" />
+    <Compile Include="Migrations\201810301425056_added FK to TrashC model.Designer.cs">
+      <DependentUpon>201810301425056_added FK to TrashC model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -275,26 +294,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\TrashCs\Create.cshtml" />
-    <Content Include="Views\TrashCs\Delete.cshtml" />
-    <Content Include="Views\TrashCs\Details.cshtml" />
-    <Content Include="Views\TrashCs\Edit.cshtml" />
-    <Content Include="Views\TrashCs\Index.cshtml" />
     <Content Include="Views\users\adminIndex.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\CustomerCs\Create.cshtml" />
-    <Content Include="Views\CustomerCs\Delete.cshtml" />
-    <Content Include="Views\CustomerCs\Details.cshtml" />
-    <Content Include="Views\CustomerCs\Edit.cshtml" />
-    <Content Include="Views\CustomerCs\Index.cshtml" />
     <Content Include="Views\Create.cshtml" />
+    <Content Include="Views\Edit.cshtml" />
+    <Content Include="Views\users\ViewPage1.cshtml" />
+    <Content Include="Views\TrashCs\Index.cshtml" />
+    <Content Include="Views\TrashCs\Details.cshtml" />
+    <Content Include="Views\TrashCs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TrashEs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -312,6 +322,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810291309041_initial mirgration.resx">
       <DependentUpon>201810291309041_initial mirgration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301253241_entering more inputs for information.resx">
+      <DependentUpon>201810301253241_entering more inputs for information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301323003_new input for data.resx">
+      <DependentUpon>201810301323003_new input for data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301332066_NewEdit.resx">
+      <DependentUpon>201810301332066_NewEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301343261_new changes.resx">
+      <DependentUpon>201810301343261_new changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810301425056_added FK to TrashC model.resx">
+      <DependentUpon>201810301425056_added FK to TrashC model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

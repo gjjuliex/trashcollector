@@ -1,43 +1,37 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
-    public class TrashCsController : Controller
+    public class TrashEsController : Controller
     {
-        // GET: TrashCs
+        // GET: TrashEs
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: TrashCs/Details/5
+        // GET: TrashEs/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: TrashCs/Create
+        // GET: TrashEs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TrashCs/Create
+        // POST: TrashEs/Create
         [HttpPost]
-        public ActionResult Create(TrashC customer)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                // get the ID of the currently logged in ApplicationUser
-                string currentUserId = User.Identity.GetUserId();
-                customer.ApplicationUserId = currentUserId;
-
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
@@ -48,13 +42,13 @@ namespace TrashCollector.Controllers
             }
         }
 
-        // GET: TrashCs/Edit/5
+        // GET: TrashEs/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: TrashCs/Edit/5
+        // POST: TrashEs/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -70,13 +64,13 @@ namespace TrashCollector.Controllers
             }
         }
 
-        // GET: TrashCs/Delete/5
+        // GET: TrashEs/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: TrashCs/Delete/5
+        // POST: TrashEs/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
