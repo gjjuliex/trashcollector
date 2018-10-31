@@ -34,6 +34,8 @@ namespace TrashCollector.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             customer.ApplicationUserId = currentUserId;
+            //customer.ExtraPickUp = null;
+            //DateTime yearOne = new DateTime(1, 1, 1);
             db.TrashC.Add(customer);
             db.SaveChanges();
             return View("Details");

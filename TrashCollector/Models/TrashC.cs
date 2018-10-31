@@ -27,7 +27,7 @@ namespace TrashCollector.Models
         [Display(Name = "End date of suspension")]
         public DateTime? EndDate { get; set; }
         [Display(Name = "Request an extra pick up day")]
-        public DateTime ExtraPickUp { get; set; }
+        public DateTime? ExtraPickUp { get; set; }
         public double Bill { get; set; }
 
         [ForeignKey("ApplicationUser")]
