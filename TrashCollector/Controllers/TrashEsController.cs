@@ -1,17 +1,22 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCollector.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TrashCollector.Controllers
 {
     public class TrashEsController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: TrashEs
         public ActionResult Index()
         {
-            return View();
+            var TrashE = db.TrashC;
+            return View(TrashE);
         }
 
         // GET: TrashEs/Details/5
@@ -21,14 +26,16 @@ namespace TrashCollector.Controllers
         }
 
         // GET: TrashEs/Create
-        public ActionResult Create()
+        public ActionResult Create(TrashC employee)
         {
+            string currentUserId = User.Identity.GetUserId();
+            employee.ApplicationUserId = currentUserId;
             return View();
         }
 
         // POST: TrashEs/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create()
         {
             try
             {
