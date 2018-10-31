@@ -15,8 +15,12 @@ namespace TrashCollector.Controllers
         // GET: TrashEs
         public ActionResult Index()
         {
-            var TrashE = db.TrashC;
-            return View(TrashE);
+        
+            var customers = db.TrashC;
+
+            return View(customers.ToList());
+
+            
         }
 
         // GET: TrashEs/Details/5
