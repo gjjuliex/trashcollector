@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201810301425056_added FK to TrashC model.Designer.cs">
       <DependentUpon>201810301425056_added FK to TrashC model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810311344155_added a question mark to datetime.cs" />
+    <Compile Include="Migrations\201810311344155_added a question mark to datetime.Designer.cs">
+      <DependentUpon>201810311344155_added a question mark to datetime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -303,11 +307,6 @@
     <Content Include="Views\TrashCs\Create.cshtml" />
     <Content Include="Views\TrashCs\Edit.cshtml" />
     <Content Include="Views\TrashCs\Delete.cshtml" />
-    <Content Include="Views\TrashEs\Create.cshtml" />
-    <Content Include="Views\TrashEs\Details.cshtml" />
-    <Content Include="Views\TrashEs\Delete.cshtml" />
-    <Content Include="Views\TrashEs\Index.cshtml" />
-    <Content Include="Views\TrashEs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810301425056_added FK to TrashC model.resx">
       <DependentUpon>201810301425056_added FK to TrashC model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810311344155_added a question mark to datetime.resx">
+      <DependentUpon>201810311344155_added a question mark to datetime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

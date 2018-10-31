@@ -10,86 +10,91 @@ namespace TrashCollector.Controllers
 {
     public class TrashCsController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: TrashCs
         public ActionResult Index()
         {
-            return View();
+            var TrashCust = db.TrashC;
+            return View(TrashCust.ToList());
+            
         }
 
-        // GET: TrashCs/Details/5
-        public ActionResult Details(int id)
+        
+        public ActionResult Details(int Id = 0)
         {
-            return View();
+            TrashC customer = db.TrashC.Find(Id);
+            return View(customer);
         }
-
-        // GET: TrashCs/Create
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: TrashCs/Create
         [HttpPost]
-        public ActionResult Create(TrashC customer)
+        public ActionResult Create([Bind(Include = "FirstName, LastName, Address, City, State, Zipcode, Days, StartDate, EndDate, ExtraPickIp, Bill")] TrashC customer)
         {
-            try
+            string currentUserId = User.Identity.GetUserId();
+            customer.ApplicationUserId = currentUserId;
+            db.TrashC.Add(customer);
+            db.SaveChanges();
+            return View("Details");
+        }
+
+
+        //[HttpPost]
+        //public ActionResult Create(TrashC customer)
+        //{
+        //    try
+        //    {
+        //        // get the ID of the currently logged in ApplicationUser
+        //        string currentUserId = User.Identity.GetUserId();
+        //        customer.ApplicationUserId = currentUserId;
+
+        //        // TODO: Add insert logic here
+
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+        public ActionResult Edit (int id = 0)
+        {
+            TrashC customer = db.TrashC.Find(id);
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult Edit (TrashC customer)
+        {
+            if (ModelState.IsValid)
             {
-                // get the ID of the currently logged in ApplicationUser
-                string currentUserId = User.Identity.GetUserId();
-                customer.ApplicationUserId = currentUserId;
-
-                // TODO: Add insert logic here
-
+                db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(customer);
         }
-
-        // GET: TrashCs/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: TrashCs/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TrashCs/Delete/5
+  
         public ActionResult Delete(int id)
         {
-            return View();
+            TrashC customer = db.TrashC.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
         }
 
-        // POST: TrashCs/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            TrashC customer = db.TrashC.Find(id);
+            db.TrashC.Remove(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

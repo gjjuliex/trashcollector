@@ -23,9 +23,9 @@ namespace TrashCollector.Models
        
         public string Days { get; set; }       
         [Display(Name = "Start date of suspension")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [Display(Name = "End date of suspension")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         [Display(Name = "Request an extra pick up day")]
         public DateTime ExtraPickUp { get; set; }
         public double Bill { get; set; }
