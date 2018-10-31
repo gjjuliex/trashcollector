@@ -1,12 +1,17 @@
 ﻿@model IEnumerable<TrashCollector.Models.TrashC>
 
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
 
-
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -45,7 +50,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Bill)
             </th>
-
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUserId)
+            </th>
             <th></th>
         </tr>
     
@@ -85,6 +92,9 @@
                 @Html.DisplayFor(modelItem => item.Bill)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUserId)
+            </td>
+            <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.Id })
@@ -93,4 +103,5 @@
     }
     
     </table>
-
+</body>
+</html>

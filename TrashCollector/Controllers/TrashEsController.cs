@@ -26,8 +26,9 @@ namespace TrashCollector.Controllers
         }
 
         // GET: TrashEs/Create
-        public ActionResult Create(TrashC employee)
+        public ActionResult Create()
         {
+
             string currentUserId = User.Identity.GetUserId();
             employee.ApplicationUserId = currentUserId;
             return View();

@@ -30,6 +30,6 @@ namespace TrashCollector.Models
             return new ApplicationDbContext();
         }
         public DbSet<TrashC> TrashC { get; set; }
-        //public DbSet<TrashE> TrashE { get; set; }
+        public DbSet<TrashE> TrashE { get; set; }
     }
 }

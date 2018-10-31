@@ -14,8 +14,8 @@ namespace TrashCollector.Controllers
         // GET: TrashCs
         public ActionResult Index()
         {
-            var TrashCust = db.TrashC;
-            return View(TrashCust.ToList());
+            var TrashCust = db.TrashC.ToList();
+            return View(TrashCust);
             
         }
 
@@ -25,6 +25,7 @@ namespace TrashCollector.Controllers
             TrashC customer = db.TrashC.Find(Id);
             return View(customer);
         }
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -34,11 +35,12 @@ namespace TrashCollector.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             customer.ApplicationUserId = currentUserId;
+            
             //customer.ExtraPickUp = null;
             //DateTime yearOne = new DateTime(1, 1, 1);
             db.TrashC.Add(customer);
             db.SaveChanges();
-            return View("Details");
+            return View("Index");
         }
 
 

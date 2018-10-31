@@ -91,6 +91,7 @@ namespace TrashCollector.Controllers
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
                 message = ManageMessageId.RemoveLoginSuccess;
+              
             }
             else
             {
