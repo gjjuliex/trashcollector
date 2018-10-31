@@ -20,78 +20,71 @@ namespace TrashCollector.Controllers
         }
 
         // GET: TrashEs/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int Id = 0)
+        {
+            var trashEmploy = db.TrashE;
+            return View(trashEmploy.ToList());
+        }
+
+        public ActionResult Create()
         {
             return View();
         }
 
-        // GET: TrashEs/Create
-        public ActionResult Create()
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "Name, CustomerBill, TrashPickUpStatus")] TrashE employee)
         {
 
             string currentUserId = User.Identity.GetUserId();
             employee.ApplicationUserId = currentUserId;
-            return View();
-        }
 
-        // POST: TrashEs/Create
-        [HttpPost]
-        public ActionResult Create()
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //customer.ExtraPickUp = null;
+            //DateTime yearOne = new DateTime(1, 1, 1);
+            db.TrashE.Add(employee);
+            db.SaveChanges();
+            return View("Index");
         }
 
         // GET: TrashEs/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            TrashE employee = db.TrashE.Find(id);
+            return View(employee);
         }
 
         // POST: TrashEs/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(TrashE employee)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(employee).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(employee);
         }
 
         // GET: TrashEs/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            TrashE employee = db.TrashE.Find(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
         }
 
-        // POST: TrashEs/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+  
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            TrashE employee = db.TrashE.Find(id);
+            db.TrashE.Remove(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

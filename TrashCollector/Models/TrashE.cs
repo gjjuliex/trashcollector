@@ -10,6 +10,7 @@ namespace TrashCollector.Models
     public class TrashE
     {
         [Key]
+        public int ID { get; set; }
         public string Name { get; set; }
         [Display(Name = "Customer Bill")]
         public double CustomerBill { get; set; }

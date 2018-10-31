@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201810311529250_adding trashe dbset.Designer.cs">
       <DependentUpon>201810311529250_adding trashe dbset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810312049419_added id.cs" />
+    <Compile Include="Migrations\201810312049419_added id.Designer.cs">
+      <DependentUpon>201810312049419_added id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -366,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810311529250_adding trashe dbset.resx">
       <DependentUpon>201810311529250_adding trashe dbset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810312049419_added id.resx">
+      <DependentUpon>201810312049419_added id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

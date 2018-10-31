@@ -14,7 +14,8 @@ namespace TrashCollector.Controllers
         // GET: TrashCs
         public ActionResult Index()
         {
-            var TrashCust = db.TrashC.ToList();
+            var currentCustomer = User.Identity.GetUserId();
+            var TrashCust = db.TrashC.Where(s => s.ApplicationUserId == currentCustomer).SingleOrDefault();
             return View(TrashCust);
             
         }
