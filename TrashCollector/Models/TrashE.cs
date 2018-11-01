@@ -12,10 +12,8 @@ namespace TrashCollector.Models
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
-        [Display(Name = "Customer Bill")]
-        public double CustomerBill { get; set; }
-        [Display(Name = "Trash pick up status")]
-        public string TrashPickUpStatus { get; set; }
+        public int ZipCode { get; set; }
+    
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
