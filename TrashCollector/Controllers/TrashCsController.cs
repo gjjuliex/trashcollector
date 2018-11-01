@@ -14,16 +14,20 @@ namespace TrashCollector.Controllers
         // GET: TrashCs
         public ActionResult Index()
         {
-           // var customers = db.TrashC;
-
-           
+           // var customers = db.TrashC;           
             var currentCustomer = User.Identity.GetUserId();
             var TrashCust = db.TrashC.Where(s => s.ApplicationUserId == currentCustomer).SingleOrDefault();
             return View(TrashCust);
 
         }
 
-        
+        public ActionResult Index2()
+        {
+            var customers = db.TrashC;
+            return View(customers.ToList());
+        }
+
+
         public ActionResult Details(int Id = 0)
         {
             TrashC customer = db.TrashC.Find(Id);

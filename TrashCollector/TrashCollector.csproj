@@ -324,12 +324,12 @@
     <Content Include="Views\TrashCs\Create.cshtml" />
     <Content Include="Views\TrashCs\Edit.cshtml" />
     <Content Include="Views\TrashCs\Delete.cshtml" />
+    <Content Include="Views\users\Index.cshtml" />
+    <Content Include="Views\TrashEs\Edit.cshtml" />
     <Content Include="Views\TrashEs\Index.cshtml" />
     <Content Include="Views\TrashEs\Delete.cshtml" />
-    <Content Include="Views\TrashEs\Edit.cshtml" />
-    <Content Include="Views\TrashEs\Create.cshtml" />
     <Content Include="Views\TrashEs\Details.cshtml" />
-    <Content Include="Views\users\Index.cshtml" />
+    <Content Include="Views\TrashEs\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

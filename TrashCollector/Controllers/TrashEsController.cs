@@ -15,13 +15,14 @@ namespace TrashCollector.Controllers
         // GET: TrashEs
         public ActionResult Index()
         {
-        
-            var customers = db.TrashC;
-
-            return View(customers.ToList());
-
-            
+            //var customers = db.TrashC;
+            //return View(customers.ToList());
+            var currentEmployee = User.Identity.GetUserId();
+            var TrashEm = db.TrashE.Where(s => s.ApplicationUserId == currentEmployee).SingleOrDefault();
+            return View(TrashEm);
         }
+
+        
 
         // GET: TrashEs/Details/5
         public ActionResult Details(int Id = 0)
@@ -46,8 +47,7 @@ namespace TrashCollector.Controllers
             //DateTime yearOne = new DateTime(1, 1, 1);
             db.TrashE.Add(employee);
             db.SaveChanges();
-            return View("Index");
-        }
+            return RedirectToAction("Index");        }
 
         // GET: TrashEs/Edit/5
         public ActionResult Edit(int id)
