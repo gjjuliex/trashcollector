@@ -14,24 +14,30 @@ namespace TrashCollector.Controllers
         // GET: TrashCs
         public ActionResult Index()
         {
-           // var customers = db.TrashC;           
+            // var customers = db.TrashC;           
+            //var currentCustomer = User.Identity.GetUserId();
+            //var TrashCust = db.TrashC.Where(s => s.ApplicationUserId == currentCustomer);
+            //return View(TrashCust.ToList());
+            var customers = db.TrashC.ToList();
+            return View(customers);
+
+        }
+
+        public ActionResult Index2(TrashE e)
+        { 
+         
+            var zipCode = db.TrashC.Where(z => z.Zipcode == e.ZipCode).ToList();
+            return View(zipCode);
+         
+
+        }
+
+        public ActionResult Details()
+        {
             var currentCustomer = User.Identity.GetUserId();
             var TrashCust = db.TrashC.Where(s => s.ApplicationUserId == currentCustomer).SingleOrDefault();
+            
             return View(TrashCust);
-
-        }
-
-        public ActionResult Index2()
-        {
-            var customers = db.TrashC;
-            return View(customers.ToList());
-        }
-
-
-        public ActionResult Details(int Id = 0)
-        {
-            TrashC customer = db.TrashC.Find(Id);
-            return View(customer);
         }
         [HttpGet]
         public ActionResult Create()
@@ -43,33 +49,10 @@ namespace TrashCollector.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             customer.ApplicationUserId = currentUserId;
-            
-            //customer.ExtraPickUp = null;
-            //DateTime yearOne = new DateTime(1, 1, 1);
             db.TrashC.Add(customer);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Details");
         }
-
-
-        //[HttpPost]
-        //public ActionResult Create(TrashC customer)
-        //{
-        //    try
-        //    {
-        //        // get the ID of the currently logged in ApplicationUser
-        //        string currentUserId = User.Identity.GetUserId();
-        //        customer.ApplicationUserId = currentUserId;
-
-        //        // TODO: Add insert logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
         public ActionResult Edit (int id = 0)
         {
             TrashC customer = db.TrashC.Find(id);

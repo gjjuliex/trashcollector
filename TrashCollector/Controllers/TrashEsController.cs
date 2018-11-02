@@ -18,7 +18,7 @@ namespace TrashCollector.Controllers
             //var customers = db.TrashC;
             //return View(customers.ToList());
             var currentEmployee = User.Identity.GetUserId();
-            var TrashEm = db.TrashE.Where(s => s.ApplicationUserId == currentEmployee).SingleOrDefault();
+            var TrashEm = db.TrashE.Where(s => s.ApplicationUserId == currentEmployee);
             return View(TrashEm);
         }
 
@@ -28,7 +28,7 @@ namespace TrashCollector.Controllers
         public ActionResult Details(int Id = 0)
         {
             var trashEmploy = db.TrashE;
-            return View(trashEmploy.ToList());
+            return View(trashEmploy);
         }
 
         public ActionResult Create()
@@ -37,17 +37,15 @@ namespace TrashCollector.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Name, CustomerBill, TrashPickUpStatus")] TrashE employee)
+        public ActionResult Create([Bind(Include = "Name, ZipCode")] TrashE employee)
         {
 
             string currentUserId = User.Identity.GetUserId();
             employee.ApplicationUserId = currentUserId;
-
-            //customer.ExtraPickUp = null;
-            //DateTime yearOne = new DateTime(1, 1, 1);
             db.TrashE.Add(employee);
             db.SaveChanges();
-            return RedirectToAction("Index");        }
+            return RedirectToAction("Index");
+        }
 
         // GET: TrashEs/Edit/5
         public ActionResult Edit(int id)

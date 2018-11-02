@@ -18,7 +18,7 @@ namespace TrashCollector.Models
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string Zipcode { get; set; }
+        public int Zipcode { get; set; }
         [Display(Name = "Days of pickup")]
        
         public string Days { get; set; }       
@@ -29,6 +29,7 @@ namespace TrashCollector.Models
         [Display(Name = "Request an extra pick up day")]
         public DateTime? ExtraPickUp { get; set; }
         public double Bill { get; set; }
+        public string Status { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }

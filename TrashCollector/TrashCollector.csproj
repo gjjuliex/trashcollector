@@ -247,6 +247,14 @@
     <Compile Include="Migrations\201811011346164_changed trashe model.Designer.cs">
       <DependentUpon>201811011346164_changed trashe model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811012021417_made zipcode an int.cs" />
+    <Compile Include="Migrations\201811012021417_made zipcode an int.Designer.cs">
+      <DependentUpon>201811012021417_made zipcode an int.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811012130523_added status.cs" />
+    <Compile Include="Migrations\201811012130523_added status.Designer.cs">
+      <DependentUpon>201811012130523_added status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -326,10 +334,11 @@
     <Content Include="Views\TrashCs\Delete.cshtml" />
     <Content Include="Views\users\Index.cshtml" />
     <Content Include="Views\TrashEs\Edit.cshtml" />
-    <Content Include="Views\TrashEs\Index.cshtml" />
     <Content Include="Views\TrashEs\Delete.cshtml" />
     <Content Include="Views\TrashEs\Details.cshtml" />
     <Content Include="Views\TrashEs\Create.cshtml" />
+    <Content Include="Views\TrashCs\Index2.cshtml" />
+    <Content Include="Views\TrashEs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -380,6 +389,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811011346164_changed trashe model.resx">
       <DependentUpon>201811011346164_changed trashe model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811012021417_made zipcode an int.resx">
+      <DependentUpon>201811012021417_made zipcode an int.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811012130523_added status.resx">
+      <DependentUpon>201811012130523_added status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,11 +23,28 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Customer", "Index", "TrashCs")</li>
-                    <li>@Html.ActionLink("Employee", "Index", "TrashEs")</li>
-                    <li>@Html.ActionLink("Trash Collecting", "Index2", "TrashCs")</li>
-                </ul>
+                    <li> @Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Employee"))
+                            {
+                            <li>@Html.ActionLink("Customer", "Index", "TrashCs")</li>
+                            <li>@Html.ActionLink("Employee", "Index", "TrashEs")</li>
+                            
+                      }
+                    }
+
+                        </li>
+
+
+
+
+
+                        @*<li>@if (Model.role == "Customer") {
+                @Html.ActionLink("Contact", "Contact", "Home")}
+            </li>*@
+                    </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
