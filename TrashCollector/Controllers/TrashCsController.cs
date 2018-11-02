@@ -12,21 +12,21 @@ namespace TrashCollector.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: TrashCs
-        public ActionResult Index()
+        public ActionResult Index(TrashE e)
         {
-            // var customers = db.TrashC;           
-            //var currentCustomer = User.Identity.GetUserId();
-            //var TrashCust = db.TrashC.Where(s => s.ApplicationUserId == currentCustomer);
-            //return View(TrashCust.ToList());
+            //var customer = db.TrashC.Where(c => c.Days == e.Days ).ToList();
+            //return View(customer);
+
             var customers = db.TrashC.ToList();
             return View(customers);
 
         }
 
-        public ActionResult Index2(TrashE e)
-        { 
-         
-            var zipCode = db.TrashC.Where(z => z.Zipcode == e.ZipCode).ToList();
+        public ActionResult Index2()
+        {
+            var empNumber = User.Identity.GetUserId();
+            var emp = db.TrashE.Where(e => e.ApplicationUserId == empNumber).SingleOrDefault();
+            var zipCode = db.TrashC.Where(z => z.Zipcode == emp.ZipCode).ToList();
             return View(zipCode);
          
 
